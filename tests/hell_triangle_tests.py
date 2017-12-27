@@ -22,6 +22,10 @@ class HellTriangleTests(unittest.TestCase):
         target = self.SAMPLE_HELL_TRIANGLE
         assert_that(target.find_maximum_total()).is_equal_to(self.SAMPLE_TRIANGLE_MAXIMUM)
 
+    def test__find_maximum_total__sample_triangle_first_column_penult_line__return_15(self):
+        target = self.SAMPLE_HELL_TRIANGLE
+        assert_that(target.find_maximum_total(x = 0, y = 2)).is_equal_to(15)
+
     def test__get_two_nearest_x_indexes__sample_triangle_first_line__return_0_and_1(self):
         target = self.SAMPLE_HELL_TRIANGLE
         assert_that(target.get_two_nearest_x_indexes(0, 0)).is_equal_to({"left":0, "right":1})
