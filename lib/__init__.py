@@ -1,0 +1,1 @@
+from lib.hell_triangle import HellTriangle
