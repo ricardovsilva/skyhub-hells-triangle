@@ -14,6 +14,10 @@ class HellTriangleTests(unittest.TestCase):
     def test__init__without_pass_triangle__should_throw(self):
         assert_that(HellTriangle).raises(Exception).when_called_with()
 
+    def test__init__with_invalid_triangle__should_throw_value_error(self):
+        invalid_triangle = [[6],[3,5],[9,7,1],[4,6,8]]
+        assert_that(HellTriangle).raises(ValueError).when_called_with(invalid_triangle)
+
     def test__init__with_sample_triangle__should_have_sample_triangle(self):
         target = self.SAMPLE_HELL_TRIANGLE.triangle
         assert_that(target).is_equal_to(self.SAMPLE_TRIANGLE)

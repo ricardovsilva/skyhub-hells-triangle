@@ -1,6 +1,7 @@
 class HellTriangle:
   
     def __init__(self, triangle):
+        if self._triangle_is_invalid(triangle): raise ValueError('Invalid triangle')
         self.triangle = triangle
 
     def find_maximum_total(self, x = 0, y = 0):
@@ -21,4 +22,10 @@ class HellTriangle:
 
         if is_first_column: return {"left": 0, "right": x + 1}
         else: return {"left": x, "right": x+1}
-            
+
+    def _triangle_is_invalid(self, triangle):
+        if triangle is None or len(triangle) == 0: return True
+
+        for i, element in enumerate(triangle):
+            if i == 0: continue
+            if len(triangle[i]) - len(triangle[i - 1]) != 1: return True
